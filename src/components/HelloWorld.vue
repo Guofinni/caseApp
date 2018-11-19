@@ -2,7 +2,7 @@
   <div class="banner">
   <div class="bannerImg">
     <transition-group tag="div">
-      <span v-for="(v,i) in banners" :key="i" :style="{opacity:(i+1)==n?'1':'0'}" class="active">
+      <span v-for="(v,i) in numbers" :key="i" :style="{opacity:(i+1)==n?'1':'0'}" class="active">
         {{v}}
       </span>
     </transition-group>
@@ -21,6 +21,16 @@ export default {
          timer1:'',　　　　// 这是bFlag定时器的数据
          timer2:'',　　　　// 这是自动播放（next（））定时器的数据
          timer3:''　　　   // 这是打开浏览器时，初始运动定时器的数据
+    }
+  },
+  computed:{
+    numbers () {
+        let ary = []
+        for (let i = 0; i < 1000; i++) {
+            ary.push(Math.round(Math.random()*100))
+        }
+        console.log(ary)
+        return ary
     }
   },
   methods:{
